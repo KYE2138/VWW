@@ -26,10 +26,10 @@ def main(argv):
             full_path = os.path.join(dataset_dir, image_file)
             if os.path.isfile(full_path):
                 img = tf.keras.preprocessing.image.load_img(
-                    full_path, color_mode='rgb').resize((96, 96))
+                    full_path, color_mode='grayscale').resize((96, 96))
                 arr = tf.keras.preprocessing.image.img_to_array(img)
                 # Scale input to [0, 1.0] like in training.
-                yield [arr.reshape(1, 96, 96, 3) / 255.]
+                yield [arr.reshape(1, 96, 96, 1) / 255.]
 
     # Convert model to full-int8 and save as quantized tflite flatbuffer.
     converter.representative_dataset = representative_dataset_gen

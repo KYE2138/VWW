@@ -14,7 +14,7 @@ from tensorflow.keras.regularizers import l2
 #define model
 def mobilenet_v1():
     # Mobilenet parameters
-    input_shape = [96,96,3] # resized to 96x96 per EEMBC requirement
+    input_shape = [96,96,1] # resized to 96x96 per EEMBC requirement
     num_classes = 2 # person and non-person
     num_filters = 8 # normally 32, but running with alpha=.25 per EEMBC requirement
 

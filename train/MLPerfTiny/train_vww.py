@@ -46,18 +46,18 @@ def main(argv):
       target_size=(IMAGE_SIZE, IMAGE_SIZE),
       batch_size=BATCH_SIZE,
       subset='training',
-      color_mode='rgb')
+      color_mode='grayscale')
   val_generator = datagen.flow_from_directory(
       BASE_DIR,
       target_size=(IMAGE_SIZE, IMAGE_SIZE),
       batch_size=BATCH_SIZE,
       subset='validation',
-      color_mode='rgb')
+      color_mode='grayscale')
   print(train_generator.class_indices)
 
-  model = train_epochs(model, train_generator, val_generator, 20, 0.001)
-  model = train_epochs(model, train_generator, val_generator, 10, 0.0005)
-  model = train_epochs(model, train_generator, val_generator, 20, 0.00025)
+  model = train_epochs(model, train_generator, val_generator, 1, 0.001)
+  model = train_epochs(model, train_generator, val_generator, 1, 0.0005)
+  model = train_epochs(model, train_generator, val_generator, 1, 0.00025)
 
   # Save model HDF5
   if len(argv) >= 3:
