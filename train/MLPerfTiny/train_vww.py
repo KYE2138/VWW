@@ -55,9 +55,9 @@ def main(argv):
       color_mode='grayscale')
   print(train_generator.class_indices)
 
-  model = train_epochs(model, train_generator, val_generator, 1, 0.001)
-  model = train_epochs(model, train_generator, val_generator, 1, 0.0005)
-  model = train_epochs(model, train_generator, val_generator, 1, 0.00025)
+  model = train_epochs(model, train_generator, val_generator, 10, 0.001)
+  model = train_epochs(model, train_generator, val_generator, 20, 0.0005)
+  model = train_epochs(model, train_generator, val_generator, 10, 0.00025)
 
   # Save model HDF5
   if len(argv) >= 3:
